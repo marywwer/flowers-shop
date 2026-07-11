@@ -1,86 +1,185 @@
-.homePage {
-  min-height: 100vh;
-  padding: 48px;
-  display: flex;
+.hero {
+  width: min(1180px, calc(100% - 40px));
+  margin: 38px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
   align-items: center;
-  justify-content: center;
+  gap: 58px;
 }
 
-.hero {
-  width: min(760px, 100%);
-  padding: 48px;
-  border-radius: 32px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 24px 70px rgba(128, 32, 72, 0.16);
+.heroContent {
+  padding: 40px 0;
 
   h1 {
-    margin: 0;
-    font-size: 48px;
-    line-height: 1.05;
+    max-width: 690px;
+    margin: 10px 0 24px;
+    color: #34242b;
+    font-family: Georgia, serif;
+    font-size: clamp(45px, 6vw, 76px);
+    font-weight: 500;
+    line-height: 1.02;
   }
 }
 
 .eyebrow {
-  margin: 0 0 12px;
-  color: #b83268;
-  font-weight: 700;
+  color: #b13768;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
-.text {
-  margin: 24px 0;
-  max-width: 560px;
+.heroText {
+  max-width: 580px;
+  margin: 0;
+  color: #735662;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-.actions {
+.heroActions {
+  margin-top: 32px;
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
   align-items: center;
+  gap: 22px;
+}
+
+.secondaryLink {
+  color: #96315a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.heroImage {
+  position: relative;
+  min-height: 570px;
+  overflow: hidden;
+  border-radius: 180px 180px 30px 30px;
+  background: #f3bdcf;
+
+  img {
+    width: 100%;
+    height: 100%;
+    min-height: 570px;
+    object-fit: cover;
+  }
+}
+
+.heroNote {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  padding: 16px 19px;
+  display: grid;
+  gap: 4px;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+
+  strong {
+    color: #813050;
+    font-size: 13px;
+  }
+
+  span {
+    color: #856876;
+    font-size: 11px;
+  }
+}
+
+.features {
+  width: min(1180px, calc(100% - 40px));
+  margin: 70px auto;
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(175, 75, 115, 0.2);
+  border-bottom: 1px solid rgba(175, 75, 115, 0.2);
+
+  article {
+    padding: 10px 35px;
+    display: grid;
+    gap: 7px;
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba(175, 75, 115, 0.2);
+    }
+
+    strong {
+      color: #512f3d;
+      font-family: Georgia, serif;
+      font-size: 20px;
+    }
+
+    span {
+      color: #846775;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.popular {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: 90px;
+}
+
+.sectionHeader {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  p {
+    margin: 0 0 7px;
+    color: #b13768;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    color: #3d2932;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 500;
+  }
 
   a {
-    border: 0;
-    border-radius: 999px;
-    padding: 12px 20px;
-    background: #d9437a;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.2s ease;
-
-    &:hover {
-      background: #c43168;
-      transform: translateY(-1px);
-    }
-
-    &:focus-visible {
-      outline: 3px solid rgba(217, 67, 122, 0.32);
-      outline-offset: 3px;
-    }
-  }
-
-  span {
+    color: #a3305e;
     font-weight: 700;
   }
 }
 
-.user {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 24px;
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
 
-  strong,
-  span {
-    display: block;
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
   }
 
-  span {
-    margin-top: 4px;
-    color: #7d5b68;
-    font-size: 14px;
+  .heroImage {
+    min-height: 430px;
+
+    img {
+      min-height: 430px;
+    }
+  }
+
+  .features,
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .features article:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(175, 75, 115, 0.2);
   }
 }

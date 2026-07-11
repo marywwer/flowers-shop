@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage/HomePage';
+import { ProductsPage } from '../pages/ProductsPage/ProductsPage';
+import { CartPage } from '../pages/CartPage/CartPage';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage/RegisterPage';
 import { ProtectedRoute } from './router/ProtectedRoute';
@@ -10,6 +12,7 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
 
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<LoginPage />} />
@@ -17,10 +20,17 @@ export const App = () => {
         </Route>
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/profile" element={<div>Личный кабинет</div>} />
-          <Route path="/cart" element={<div>Корзина</div>} />
-          <Route path="/favorites" element={<div>Избранное</div>} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route
+            path="/profile"
+            element={<div>Личный кабинет</div>}
+          />
         </Route>
+
+        <Route
+          path="*"
+          element={<div>Страница не найдена</div>}
+        />
       </Routes>
     </BrowserRouter>
   );
