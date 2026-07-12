@@ -11,7 +11,7 @@ import { Input } from '../../ui/Input/Input';
 import { Select } from '../../ui/Select/Select';
 import { Toggle } from '../../ui/Toggle/Toggle';
 import { Snackbar } from '../../ui/Snackbar/Snackbar';
-import styles from './ProductsPage.module.scss';
+import styles from './Styles.module.scss';
 
 type CategoryFilter = ProductCategory | 'all';
 

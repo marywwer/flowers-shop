@@ -47,13 +47,13 @@ export const RegisterPage = () => {
 
         <div className={styles.header}>
           <h1>Регистрация</h1>
-          <p>Создаём аккаунт для будущей корзины, лайков и прочего разврата</p>
+          <p>Создаём аккаунт для будущей корзины, лайков и прочего удовольствия</p>
         </div>
 
         <Input
           label="Имя"
           type="text"
-          placeholder="Например, Дарья"
+          placeholder="Например, Мария"
           value={name}
           onChange={setName}
           required

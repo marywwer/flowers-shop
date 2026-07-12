@@ -1,7 +1,7 @@
 import { CartProduct } from '../../entities/product/types';
 import { Button } from '../../ui/Button/Button';
 import { useCartStore } from '../../store/cart/useCartStore';
-import styles from './CartItem.module.scss';
+import styles from './Styles.module.scss';
 
 type CartItemProps = {
   product: CartProduct;

@@ -3,7 +3,7 @@ import { Header } from '../../widgets/Header/Header';
 import { CartItem } from '../../widgets/CartItem/CartItem';
 import { Button } from '../../ui/Button/Button';
 import { useCartStore } from '../../store/cart/useCartStore';
-import styles from './CartPage.module.scss';
+import styles from './Styles.module.scss';
 
 export const CartPage = () => {
   const items = useCartStore((state) => state.items);

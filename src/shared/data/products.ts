@@ -7,8 +7,7 @@ export const products: Product[] = [
     description: 'Воздушный букет из розовых роз, эустомы и нежной зелени.',
     price: 4590,
     oldPrice: 5190,
-    image:
-      'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80',
+    image: '../../../public/images/products/pink_cloud_flowers.jpg',
     category: 'roses',
     rating: 4.9,
     reviewsCount: 38,
@@ -20,8 +19,7 @@ export const products: Product[] = [
     title: 'Пионовое утро',
     description: 'Нежный сезонный букет с пионами в молочно-розовой гамме.',
     price: 5890,
-    image:
-      'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=900&q=80',
+    image: '../../../public/images/products/peony_morning_flowers.jpg',
     category: 'peonies',
     rating: 5,
     reviewsCount: 24,
@@ -33,8 +31,7 @@ export const products: Product[] = [
     title: 'Весеннее письмо',
     description: 'Яркие тюльпаны для тех, кто соскучился по весне.',
     price: 2990,
-    image:
-      'https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=80',
+    image: '../../../public/images/products/spring_letter_flowers.jpg',
     category: 'tulips',
     rating: 4.8,
     reviewsCount: 17,
@@ -45,8 +42,7 @@ export const products: Product[] = [
     title: 'Ягодный десерт',
     description: 'Сборный букет с выразительными ягодными оттенками.',
     price: 3990,
-    image:
-      'https://images.unsplash.com/photo-1494336956603-39a3641f1d4d?auto=format&fit=crop&w=900&q=80',
+    image: '../../../public/images/products/berry_dessert_flowers.jpg',
     category: 'mixed',
     rating: 4.7,
     reviewsCount: 31,
@@ -58,8 +54,7 @@ export const products: Product[] = [
     title: 'Белая жемчужина',
     description: 'Светлый минималистичный букет для особенного события.',
     price: 4290,
-    image:
-      'https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=900&q=80',
+    image: '../../../public/images/products/white_pearl_flowers.jpg',
     category: 'mixed',
     rating: 4.9,
     reviewsCount: 19,
@@ -70,8 +65,7 @@ export const products: Product[] = [
     title: 'Домашний сад',
     description: 'Композиция из живых растений в декоративном кашпо.',
     price: 3490,
-    image:
-      'https://images.unsplash.com/photo-1453904300235-0f2f60b15b5d?auto=format&fit=crop&w=900&q=80',
+    image: '../../../public/images/products/home_garden_flowers.jpg',
     category: 'plants',
     rating: 4.6,
     reviewsCount: 12,
