@@ -2,7 +2,7 @@
   position: fixed;
   right: 24px;
   bottom: 24px;
-  z-index: 5;
+  z-index: 9999;
   display: grid;
   gap: 10px;
   width: min(390px, calc(100vw - 48px));

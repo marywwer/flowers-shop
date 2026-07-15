@@ -2,9 +2,9 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
   useMemo,
   useState,
+  useCallback,
 } from 'react';
 import { mockAuthApi } from '../../shared/api/mockAuthApi';
 import { User } from './authTypes';
@@ -24,20 +24,16 @@ const TOKEN_KEY = 'pink-shop-token';
 const USER_KEY = 'pink-shop-user';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [token, setToken] = useState<string | null>(null);
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const savedToken = localStorage.getItem(TOKEN_KEY);
+  const [token, setToken] = useState<string | null>(() => {
+    return localStorage.getItem(TOKEN_KEY);
+  });
+  
+  const [user, setUser] = useState<User | null>(() => {
     const savedUser = localStorage.getItem(USER_KEY);
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
 
-    if (savedToken && savedUser) {
-      setToken(savedToken);
-      setUser(JSON.parse(savedUser));
-    }
-  }, []);
-
-  const login = async (email: string, password: string) => {
+  const login = useCallback(async (email: string, password: string) => {
     const response = await mockAuthApi.login(email, password);
 
     setToken(response.token);
@@ -45,9 +41,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     localStorage.setItem(TOKEN_KEY, response.token);
     localStorage.setItem(USER_KEY, JSON.stringify(response.user));
-  };
+  }, []);
 
-  const register = async (name: string, email: string, password: string) => {
+  const register = useCallback(async (name: string, email: string, password: string) => {
     const response = await mockAuthApi.register(name, email, password);
 
     setToken(response.token);
@@ -55,15 +51,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     localStorage.setItem(TOKEN_KEY, response.token);
     localStorage.setItem(USER_KEY, JSON.stringify(response.user));
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setToken(null);
     setUser(null);
 
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
-  };
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -74,10 +70,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       register,
       logout,
     }),
-    [user, token]
+    [user, token, login, register, logout]
   );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext value={value}>{children}</AuthContext>;
 };
 
 export const useAuth = () => {
